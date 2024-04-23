@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="500.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.first_jvfx_proj.AirtravelPageController">
+   <children>
+      <Label layoutX="35.0" layoutY="56.0" text="Дата и время">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="223.0" layoutY="14.0" text="Авиаперелёт">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="35.0" layoutY="112.0" text="Аэропорт вылета">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <ChoiceBox fx:id="priority" layoutX="226.0" layoutY="376.0" prefWidth="150.0" />
+      <Button fx:id="saveButton" layoutX="226.0" layoutY="422.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="150.0" text="SAVE" />
+      <Label layoutX="224.0" layoutY="340.0" text="Выберите приоритет">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <TextField fx:id="areaDateAndTime" layoutX="180.0" layoutY="57.0" prefHeight="30.0" prefWidth="216.0" />
+      <TextField fx:id="areaOUT" layoutX="180.0" layoutY="112.0" prefHeight="25.0" prefWidth="216.0" />
+      <DatePicker fx:id="datePickerOff" layoutX="412.0" layoutY="59.0" />
+      <Label layoutX="31.0" layoutY="167.0" text="Аэропорт прилёта">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <TextField fx:id="areaIN" layoutX="180.0" layoutY="167.0" prefHeight="25.0" prefWidth="216.0" />
+      <Label layoutX="35.0" layoutY="225.0" text="Время в полёте">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <TextField fx:id="areaTimeFly" layoutX="180.0" layoutY="225.0" prefHeight="25.0" prefWidth="216.0" />
+   </children>
+</AnchorPane>

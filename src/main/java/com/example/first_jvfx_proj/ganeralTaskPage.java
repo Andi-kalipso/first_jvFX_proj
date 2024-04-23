@@ -1,4 +1,16 @@
 package com.example.first_jvfx_proj;
 
-public class ganeralTaskPage {
+
+import java.util.Date;
+
+
+
+public abstract class ganeralTaskPage {
+
+    public Date date;
+
+
+
+
+
 }
