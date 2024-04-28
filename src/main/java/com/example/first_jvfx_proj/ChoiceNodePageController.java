@@ -17,7 +17,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 
-public class ChoiceNodePageController {
+public class ChoiceNodePageController {                                         //форма для выбора какую задачу ставим
 
 
     @FXML
@@ -30,7 +30,7 @@ public class ChoiceNodePageController {
     private Button airtravelButton;
 
     @FXML
-    protected void onbirthButtonClick()  throws Exception {
+    protected void onbirthButtonClick()  throws Exception {                     //при нажатии кнопки переходим на форму дня рождения
 
         //закрываем окно и открываем то, которое будет с конкретной формой работать
         Stage stage = (Stage) birthButton.getScene().getWindow();
@@ -42,14 +42,16 @@ public class ChoiceNodePageController {
             Stage stageChoice = new Stage();
             stageChoice.setTitle("Birthday Window");
             stageChoice.setScene(new Scene(root1));
+
             stageChoice.show();
+
         }catch (Exception e){
             e.printStackTrace();
         }
     }
 
     @FXML
-    protected void onBuisnessMeetButtonClick()  throws Exception {
+    protected void onBuisnessMeetButtonClick()  throws Exception {              //при нажатии кнопки переходим на форму бизнес встречи
 
         //закрываем окно и открываем то, которое будет с конкретной формой работать
         Stage stage = (Stage) buisnessMeetButton.getScene().getWindow();
@@ -68,7 +70,7 @@ public class ChoiceNodePageController {
     }
 
     @FXML
-    protected void onAirtravelButtonClick()  throws Exception {
+    protected void onAirtravelButtonClick()  throws Exception {                 //при нажатии кнопки переходим на форму авиаперелёта
 
         //закрываем окно и открываем то, которое будет с конкретной формой работать
         Stage stage = (Stage) airtravelButton.getScene().getWindow();

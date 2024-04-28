@@ -32,7 +32,7 @@ public class MainController {
     @FXML
     protected void initialize(){
         System.out.print("init_Main_OK");
-        ObservableList<String> langs2;
+
         langs = FXCollections.observableArrayList("Java", "JavaScript", "C#", "Python");
         mainListNodes.setItems(langs); //подумать над этим, думать не к чему, получается отдельно котроллер сделал для choice и погнали дальше
     }
@@ -51,7 +51,7 @@ public class MainController {
     @FXML
     void onNewNodeButtonClick(ActionEvent event) throws Exception {
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ChoiceNodePage.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("choiceNodePage.fxml"));
             Parent root1 = (Parent) fxmlLoader.load();
             Stage stageChoice = new Stage();
             stageChoice.setTitle("choise Window");
