@@ -4,9 +4,10 @@
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.layout.Pane?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.first_jvfx_proj.MainController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.first_jvfx_proj.MainController">
    <children>
-      <Button fx:id="newNodeButton" layoutX="310.0" layoutY="799.0" mnemonicParsing="false" onAction="#onNewNodeButtonClick" prefHeight="79.0" prefWidth="180.0" text="Создать новую запись" />
-      <ListView fx:id="mainListNodes" layoutX="12.0" layoutY="44.0" prefHeight="743.0" prefWidth="777.0" />
+      <Button fx:id="newNodeButton" layoutX="311.0" layoutY="548.0" mnemonicParsing="false" onAction="#onNewNodeButtonClick" prefHeight="79.0" prefWidth="180.0" text="Создать новую запись" />
+      <ListView fx:id="mainListNodes" layoutX="12.0" layoutY="24.0" prefHeight="484.0" prefWidth="777.0" />
+      <Button fx:id="updateMainList" layoutX="665.0" layoutY="575.0" mnemonicParsing="false" onAction="#onUpdateMainListButtonClick" prefHeight="22.0" prefWidth="88.0" text="обновить" />
    </children>
 </Pane>

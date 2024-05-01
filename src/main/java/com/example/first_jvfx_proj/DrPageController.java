@@ -1,27 +1,20 @@
 package com.example.first_jvfx_proj;
 
+import com.example.first_jvfx_proj.structClasses.birthdayTask;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.text.Text;
+import javafx.stage.Stage;
 
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.Date;
-import java.util.Objects;
+import java.util.*;
 
 
-public class DrPageController extends ganeralTaskPage {             // класс для управления задачами др, а именно для формирования задачи, а после её сохраниения в список
-    public void setDateBirthday(){
-        //date = new Date();
-    }
-
-    public void setPriority(){
-        //priorityObj = Priority.prior_1;
-    }
-
+public class DrPageController {             // класс для управления задачами др, а именно для формирования задачи, а после её сохраниения в список
 
 
     //объявляем переменные по id элементов на view листе
@@ -30,18 +23,24 @@ public class DrPageController extends ganeralTaskPage {             // клас�
     //филды
     @FXML
     private TextField areatextfio;
-    @FXML
-    private TextField areaDateAndTime;
 
-    //кнопка сохранения
+    @FXML
+    private TextField areaTime;
+    @FXML
+    private DatePicker dataP;
+    private Priority priorPP;
+
+    public static List<birthdayTask> birthTasksList = new ArrayList<birthdayTask>();
+
+
+
+    //сообщение об ошибках
     @FXML
     public Label outputText;
     //кнопка сохранения
     @FXML
     public Button saveButton;
 
-    @FXML
-    public DatePicker datePickerOff;
 
     private boolean ErrorFlag = false;
 
@@ -57,21 +56,26 @@ public class DrPageController extends ganeralTaskPage {             // клас�
 
         String prior = priorityBox.getValue();
         String per = null;
+
         switch (prior){
             case "0":
                 per = "не важна";
+                priorPP = Priority.prior_0;
                 break;
             case "1":
                 per = "обычная";
+                priorPP = Priority.prior_1;
                 break;
             case "2":
                 per = "важна";
+                priorPP = Priority.prior_2;
                 break;
             case "3":
                 per = "крайне важна";
+                priorPP = Priority.prior_3;
                 break;
         }
-        outputText.setText(per);
+
     }
 
     public void gettingListOfPrior(){
@@ -85,22 +89,28 @@ public class DrPageController extends ganeralTaskPage {             // клас�
         System.out.println(Priority.prior_0.ordinal());
     }
 
-    public void onSaveButtonClick() throws IOException {        //посмотрим, может сделать отдельный класс формирования строки в нашем формате
+    public void onSaveButtonClick() throws IOException {
         String strok = strMaker();
         if(!ErrorFlag){
             try{
-                FileWriter writer = new FileWriter("output.txt");
-                writer.write(areatextfio.getText() + "#");
-                writer.write(areaDateAndTime.getText() + "#");
-                writer.write(outputText.getText() + "*");
+                System.out.println(dataP.getValue().toString());
+                birthdayTask newBirth = new birthdayTask(dataP.getValue().toString(),areaTime.getText(),priorPP,areatextfio.getText());
+                birthTasksList.addFirst(newBirth);
+                FileWriter writer = new FileWriter("output.txt", true);
+                writer.write(newBirth.toString() + "\n");
+
                 writer.close();
+                Stage stage = (Stage) saveButton.getScene().getWindow();
+                stage.close();
+
             } catch(Exception e) {
                 System.out.println("ERROR of write File dr.onSaveButtonClick");
                 e.printStackTrace();
             }
             ErrorFlag = false;
+            outputText.setText("запись создана!");
         } else {
-            outputText.setText("заполните все поля!!");
+            outputText.setText("ОШИБКА - заполните все поля!!");
             ErrorFlag = false;
         }
     }
@@ -111,8 +121,12 @@ public class DrPageController extends ganeralTaskPage {             // клас�
             System.out.println("WARNING");
             ErrorFlag = true;
         }
-        if(Objects.equals(areaDateAndTime.getText(), "")) {
+        if(Objects.equals(dataP.getValue().toString(), "")) {
             System.out.println("FIASCO");
+            ErrorFlag = true;
+        }
+        if(Objects.equals(areaTime.getText(), "")){
+            System.out.println("FINNITO");
             ErrorFlag = true;
         }
         return strMakes;
