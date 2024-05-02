@@ -113,7 +113,7 @@ public class BuisnessMeetPageController {
                 e.printStackTrace();
             }
         } else {
-            System.out.println("we here");
+            System.out.println("we here");          //сделать сообщение о том, что ввести или типа того
         }
 
     }
@@ -133,8 +133,13 @@ public class BuisnessMeetPageController {
             System.out.println("добавте тех с кем встреча");
             return false;
         }
+
         if(Objects.equals(dataP.getValue().toString(), "")) {
             System.out.println("заполните поле ДАТЫ");
+            return false;
+        }
+        if(priorPP == null){
+            System.out.println("заполните приоритет");
             return false;
         }
 

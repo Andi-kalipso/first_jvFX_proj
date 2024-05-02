@@ -19,9 +19,12 @@ public class airtravelTask extends ganeralTaskPage {
         this.timeOfPlane = timOP;
     }
 
+
+
+
     @Override
-    public String toString(){                   //////////////////////////////////////////////////////////////дописать
-        return "";
+    public String toString(){
+        return airportFROM + "-->" + airportIN + "-->" + timeOfPlane + "#" + dateNeed.toString() + "#" + getsPrior();
     }
 
     @Override
@@ -37,4 +40,7 @@ public class airtravelTask extends ganeralTaskPage {
     public int hashCode() {
         return Objects.hash(super.hashCode(), airportFROM, airportIN, timeOfPlane);
     }
+
+
+
 }
