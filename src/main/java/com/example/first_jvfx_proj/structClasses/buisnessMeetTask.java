@@ -20,7 +20,7 @@ public class buisnessMeetTask extends ganeralTaskPage {
 
     @Override
     public String toString(){                   //////////////////////////////////////////////////////////////дописать
-        return "";
+        return partners.toString() + "#" + place + "#" + dateNeed.toString() + "#" + getsPrior();
     }
 
     @Override
