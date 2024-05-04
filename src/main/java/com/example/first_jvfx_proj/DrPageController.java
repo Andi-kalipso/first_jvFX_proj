@@ -60,33 +60,33 @@ public class DrPageController {             // класс для управле�
         switch (prior){
             case "0":
                 per = "не важна";
-                priorPP = Priority.prior_0;
+                priorPP = Priority.prioritet_0;
                 break;
             case "1":
                 per = "обычная";
-                priorPP = Priority.prior_1;
+                priorPP = Priority.prioritet_1;
                 break;
             case "2":
                 per = "важна";
-                priorPP = Priority.prior_2;
+                priorPP = Priority.prioritet_2;
                 break;
             case "3":
                 per = "крайне важна";
-                priorPP = Priority.prior_3;
+                priorPP = Priority.prioritet_3;
                 break;
         }
 
     }
 
     public void gettingListOfPrior(){
-        String[] strList = {String.valueOf(Priority.prior_0.ordinal()),
-                String.valueOf(Priority.prior_1.ordinal()),
-                String.valueOf(Priority.prior_2.ordinal()),
-                String.valueOf(Priority.prior_3.ordinal())};
+        String[] strList = {String.valueOf(Priority.prioritet_0.ordinal()),
+                String.valueOf(Priority.prioritet_1.ordinal()),
+                String.valueOf(Priority.prioritet_2.ordinal()),
+                String.valueOf(Priority.prioritet_3.ordinal())};
 
         priorityBox.getItems().addAll(strList);
         priorityBox.setOnAction(this::getPrior);
-        System.out.println(Priority.prior_0.ordinal());
+        System.out.println(Priority.prioritet_0.ordinal());
     }
 
     public void onSaveButtonClick() throws IOException {
@@ -121,7 +121,8 @@ public class DrPageController {             // класс для управле�
             System.out.println("WARNING");
             ErrorFlag = true;
         }
-        if(Objects.equals(dataP.getValue().toString(), "")) {
+
+        if(dataP.getValue() == null) {
             System.out.println("FIASCO");
             ErrorFlag = true;
         }

@@ -3,10 +3,7 @@ package com.example.first_jvfx_proj;
 import com.example.first_jvfx_proj.structClasses.airtravelTask;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 import java.io.FileWriter;
@@ -39,45 +36,47 @@ public class AirtravelPageController {
 
     private Priority priorPP;
 
+    @FXML
+    private Label outputLabel;
 
     //метод для передачи в ChoiseBox элементов
     public void gettingListOfPrior(){
-        String[] strList = {String.valueOf(Priority.prior_0),
-                String.valueOf(Priority.prior_1),
-                String.valueOf(Priority.prior_2),
-                String.valueOf(Priority.prior_3)};
+        String[] strList = {String.valueOf(Priority.prioritet_0),
+                String.valueOf(Priority.prioritet_1),
+                String.valueOf(Priority.prioritet_2),
+                String.valueOf(Priority.prioritet_3)};
 
         priorityBox.getItems().addAll(strList);
         priorityBox.setOnAction(this::getPrior);
-        System.out.println(Priority.prior_0.ordinal());
+        System.out.println(Priority.prioritet_0.ordinal());
     }
 
     //метод для того, чтобы сохранять в файл понимаемые человеком данные
     @FXML
-    public String getPrior(ActionEvent event){
+    public void getPrior(ActionEvent event){
 
         String prior = priorityBox.getValue();
         String per = null;
 
         switch (prior){
-            case "prior_0":
+            case "prioritet_0":
                 per = "не важна";
-                priorPP = Priority.prior_0;
+                priorPP = Priority.prioritet_0;
                 break;
-            case "prior_1":
+            case "prioritet_1":
                 per = "обычная";
-                priorPP = Priority.prior_1;
+                priorPP = Priority.prioritet_1;
                 break;
-            case "prior_2":
+            case "prioritet_2":
                 per = "важна";
-                priorPP = Priority.prior_2;
+                priorPP = Priority.prioritet_2;
                 break;
-            case "prior_3":
+            case "prioritet_3":
                 per = "крайне важна";
-                priorPP = Priority.prior_3;
+                priorPP = Priority.prioritet_3;
                 break;
         }
-        return per;
+
     }
 
     @FXML
@@ -106,40 +105,45 @@ public class AirtravelPageController {
                 e.printStackTrace();
             }
         } else {
-                                            //сделать сообщение о том, что ввести или типа того
+                     flagOfForms = true;                       //сделать сообщение о том, что ввести или типа того
         }
     }
 
     private boolean isAllFormsfilled(){
         if(Objects.equals(areaOUT.getText(), "")){
+            outputLabel.setText("заполните аэропорт вылета");
             System.out.println("заполните аэропорт вылета");
             return false;
         }
 
         if(Objects.equals(areaIN.getText(), "")){
+            outputLabel.setText("заполните аэропорт прилёта");
             System.out.println("заполните аэропорт прилёта");
             return false;
         }
 
         if(Objects.equals(areaTimeFly.getText(), "")){
+            outputLabel.setText("заполните время в полёте");
             System.out.println("заполните время в полёте");
             return false;
         }
 
         if(Objects.equals(areaTime.getText(), "")){
+            outputLabel.setText("заполните время вылета");
             System.out.println("заполните время вылета");
             return false;
         }
 
-        if(Objects.equals(dataP.getValue().toString(), "")){
+        if(dataP.getValue() == null){
+            outputLabel.setText("заполните дату вылета");
             System.out.println("заполните дату вылета");
             return false;
         }
         if(priorPP == null){
+            outputLabel.setText("заполните приоритет");
             System.out.println("заполните приоритет");
             return false;
         }
-
 
         return true;
     }

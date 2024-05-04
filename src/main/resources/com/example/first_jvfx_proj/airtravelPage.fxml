@@ -54,5 +54,10 @@
       </Label>
       <Label layoutX="426.0" layoutY="136.0" text="Вводите в виде hh:mm" />
       <Label layoutX="426.0" layoutY="299.0" text="Вводите в виде hh:mm" />
+      <Label fx:id="outputLabel" layoutX="14.0" layoutY="410.0" prefHeight="65.0" prefWidth="204.0">
+         <font>
+            <Font size="10.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

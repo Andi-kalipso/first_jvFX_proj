@@ -54,5 +54,15 @@
       </Label>
       <Label layoutX="393.0" layoutY="107.0" text="Вводите в виде hh:mm" />
       <DatePicker fx:id="dataP" layoutX="170.0" layoutY="59.0" prefHeight="25.0" prefWidth="216.0" />
+      <Label fx:id="outputLabel" layoutX="13.0" layoutY="398.0" prefHeight="87.0" prefWidth="193.0">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label fx:id="outputLabel" layoutX="14.0" layoutY="408.0" prefHeight="66.0" prefWidth="216.0">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
